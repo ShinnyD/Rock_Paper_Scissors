@@ -22,12 +22,12 @@ function round() {
         playerScore = playerScore + 1;
         
     //player lose condition
-} else if ((playerSelection == "scissors" && getComputerChoice == "rock") || (playerSelection == "rock" && getComputerChoice == "paper") || (playerSelection == "paper" && getComputerChoice == "scissors")){
+    } else if ((playerSelection == "scissors" && getComputerChoice == "rock") || (playerSelection == "rock" && getComputerChoice == "paper") || (playerSelection == "paper" && getComputerChoice == "scissors")){
         console.log("You loose! " + getComputerChoice + " beats " + playerSelection);
         computerScore = computerScore + 1;
         
     //player draw condition
-} else 
+    } else 
     console.log("Its a tie!");
 
 }
