@@ -2,62 +2,52 @@
 
 //create arr with Rock, Paper, Scissors
 let arr = ["Rock", "Paper","Scissors"];
-//set getComputerChoice to randomly return either "Rock","Paper", or "Scissors"
-//////return;
 
-//getComputerChoice();
-
-
-//set playerSelection
-
-
-//set playerSelection to randomly return either "Rock", "Paper", or "Scissors"
-//function playerSelection(){
-    //console.log("Player chose " + arr[(Math.floor(Math.random() * arr.length))]);
-   // return;
-
-
-
-    //make input case insensitive
-
-//set conditions whether the player wins or loses
-function game() {
+// one round of rock paper scissors
+function round() {
+    //getComputerChoice();
     let getComputerChoice = arr[(Math.floor(Math.random() * arr.length))]
+    //set playerSelection
     let playerSelection= prompt("Please input either Rock, Paper, or Scissors.","")
+    
+    console.log("Computer chose " + getComputerChoice);
+    console.log("Player chose " + playerSelection);
+//make input case insensitive
+    getComputerChoice = getComputerChoice.toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
+
     // player win condition
-    if ((playerSelection == "Rock" && getComputerChoice == "Scissors") || (playerSelection == "Paper" && getComputerChoice == "Rock") || (playerSelection == "Scissors" && getComputerChoice == "Paper")){
-        //log in console that you won and show which side chose what
-        console.log("You win! " + playerSelection + "beats " + getComputerChoice);
+    if ((playerSelection == "rock" && getComputerChoice == "scissors") || (playerSelection == "paper" && getComputerChoice == "rock") || (playerSelection == "scissors" && getComputerChoice == "paper")){
+        console.log("You win! " + playerSelection + " beats " + getComputerChoice);
+        playerScore = playerScore + 1;
+        
     //player lose condition
-} else if ((playerSelection == "Scissors" && getComputerChoice == "Rock") || (playerSelection == "Rock" && getComputerChoice == "Paper") || (playerSelection == "Paper" && getComputerChoice == "Scissors")){
-        console.log("You loose! " + getComputerChoice + "beats " + playerSelection);
+} else if ((playerSelection == "scissors" && getComputerChoice == "rock") || (playerSelection == "rock" && getComputerChoice == "paper") || (playerSelection == "paper" && getComputerChoice == "scissors")){
+        console.log("You loose! " + getComputerChoice + " beats " + playerSelection);
+        computerScore = computerScore + 1;
+        
     //player draw condition
 } else 
     console.log("Its a tie!");
+
 }
 
-game();
+//start a round
 
-//game();
- 
-    //if getComputerChoice = "Rock" & playerSelection = "Paper"
-        // log "You Win! Paper beats Rock"
-    //if getComputerChoice = Rock & playerSelection = "Scissors"
-        // log "You loose! Rock beats scissors."
-    //if getComputerChoice = "Rock" & playerSelection = "Rock"
-        // log "Its a tie!"
-    //if getComputerChoice = "Paper" & playerSelection = "Scissors"
-        // log "You win! Scissor beats paper."
-    //if getComputerChoice = "Paper" & playerSelection = "Rock"
-        // log "You loose! Paper beats rock."
-    //if getComputerChoice = "Paper" & playerSelection = "Paper"
-        // log "Its a tie!"
-    //if getComputerChoice = "Scissors" & playerSelection = "Rock"
-        // log "You win! Rock beats scissor."
-    //if getComputerChoice = "Scissor" & playerSelectoin = "Paper"
-        // log "You loose! Scissor beats paper."
-    //if getComputerChoice = "Scissors" & playerSelection = "Scissors"
-        // log "Its a tie!"
-    
-    //compare getComputerChoice to playerSelection
-        //reset the game
+let playerScore = 0;
+let computerScore = 0;
+while (playerScore < 5 && computerScore < 5){
+    //show current score count
+    console.log("player score: " + playerScore);
+    console.log("computer score: " + computerScore);
+    //repeat round
+    round();
+}
+
+if (playerScore === 5){
+    console.log("You win! First one to 5!")
+} else {
+    console.log("You loose! Computer got to 5 first.")
+}
+
+
