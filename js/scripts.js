@@ -9,6 +9,7 @@ const scissorsButton = document.querySelector(".btnScissors");
 const resultsDIV = document.querySelector(".results");
 
 function round(playerSelection) {
+  resultsDIV.textContent=""
   let getComputerChoice = arr[Math.floor(Math.random() * arr.length)];
 
   //let playerSelection= buttons.className//prompt("Please input either Rock, Paper, or Scissors.","")
@@ -43,17 +44,37 @@ function round(playerSelection) {
   p.innerText = "Its a tie!";
   resultsDIV.appendChild(p);
   }
+
+  if (playerScore < 5 && computerScore < 5) {
+  let p = document.createElement("p");
+  p.innerText = "player score: " + playerScore;
+  resultsDIV.appendChild(p);
+  let div = document.createElement("div");
+  div.innerText = "computer score: " + computerScore;
+  resultsDIV.appendChild(div);
+  console.log("player score: " + playerScore);
+  console.log("computer score: " + computerScore);
+  //repeat round
+  //round(playerSelection);
 }
 
-  if (playerScore === 5) {
+ if (playerScore === 5) {
     let div = document.createElement("div");
     div.innerText = "You win! First one to 5!";
     console.log("You win! First one to 5!");
+    resultsDIV.appendChild(div)
   } else if (computerScore === 5) {
     let div = document.createElement("div");
+    resultsDIV.appendChild(div)
     div.innerText = "You loose! Computer got to 5 first.";
     console.log("You loose! Computer got to 5 first.");
   }
+
+}
+
+
+
+ 
 
   
 
@@ -74,13 +95,3 @@ scissorsButton.addEventListener("click", () => {
 });
 
 
-if (playerScore < 5 && computerScore < 5) {
-  const h2 = document.createElement("h2");
-  h2.innerText = "player score: " + playerScore;
-  const p = document.createElement("p");
-  p.innerText = "computer score: " + computerScore;
-  console.log("player score: " + playerScore);
-  console.log("computer score: " + computerScore);
-  //repeat round
-  //round(playerSelection);
-}

@@ -30,6 +30,6 @@ button{
     border-radius: 10px;
 }
 
-p{
-    align-self: center;
+.results{
+    color: green;
 }
